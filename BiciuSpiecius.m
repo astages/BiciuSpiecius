@@ -32,12 +32,19 @@ rectangle('Position',[a,a,b-a,b-a],...
 
 % Nauju tasku gavimas vidurkio principu
 % Mazas pvz., "suleisiu" 1 taska su 2
-x_naujas = (x_sort_10(1,:) + x_sort_10(2,:))/2;
-f_naujas = funkcija(x_naujas(1,:))
-% Nubreziu nauja taska
-scatter(x_naujas(1,1),x_naujas(1,2),'g*');
-text(x_naujas(1,1)+0.3,x_naujas(1,2),num2str(f_naujas));
-
+for j=1:9
+ for jj=j+1:10
+    x_naujas= (x_sort_10(j,:) + x_sort_10(jj,:))/2;
+       f_naujas = funkcija(x_naujas(1,:))
+         if (fMin > f_naujas)
+   scatter(x_naujas(1,1),x_naujas(1,2),'y*'); 
+  text(x_naujas(1,1)+0.3,x_naujas(1,2),num2str(j));
+        end;
+    end;
+ end;
+%Nubreziu nauja taska
+%scatter(x_naujas(1,1),x_naujas(1,2),'g*');
+%text(x_naujas(1,1)+0.3,x_naujas(1,2),num2str(f_naujas));
 
     
 
